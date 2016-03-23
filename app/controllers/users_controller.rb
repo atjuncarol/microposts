@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :logged_in_user, only:[:edit, :update]
   
   def show # 追加
     @user = User.find(params[:id])
@@ -17,6 +18,27 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
+  
+  def edit
+    @user = User.find(params[:id])
+  end
+  
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      redirect_to user_url(@user)
+    else
+      render 'edit'
+    end
+  end
+  
+  def logged_in_user
+    unless logged_in?
+      flash[:danger] = "Please log in."
+      redirect_to login_url
+    end
+  end
+
 
   private
 
@@ -25,4 +47,3 @@ class UsersController < ApplicationController
                                  :password_confirmation)
   end
 end
-
