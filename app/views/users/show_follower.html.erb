@@ -1,4 +1,13 @@
-<% provide(:title, @title) %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <% provide(:title, @title) %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+  </head>
+<body>
+
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
@@ -22,7 +31,7 @@
   
   <div class="col-md-8">
     <h3><%= @title %></h3>
-    <span class = "microposts">
+    <span class = "follow">
     <% @user.follower_users.each do |user| %>
         <div class="row">
           <%= user.name %>
@@ -32,3 +41,5 @@
     </span>
   </div>
 </div>
+</body>
+</html>
