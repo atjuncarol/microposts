@@ -35,6 +35,10 @@ class UsersController < ApplicationController
     end
   end
   
+  def index
+    @users = User.paginate(page: params[:page], :per_page => 10)
+  end
+  
   private
   
   def logged_in_user
