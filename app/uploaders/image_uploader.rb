@@ -1,11 +1,10 @@
-# encoding: utf-8
+ # encoding: utf-8
 
 class ImageUploader < CarrierWave::Uploader::Base
 
   # Include MiniMagick support:
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
-
   # Choose what kind of storage to use for this uploader:
   storage :file
   # storage :fog
@@ -15,9 +14,9 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   def store_dir
     # デフォルト値
-    # "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
-    # public/mypath/ 配下にファイルが配置される
-    "mypath"
+    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    # public/ 配下にファイルが配置される
+    # "uploads"
   end
 
 
