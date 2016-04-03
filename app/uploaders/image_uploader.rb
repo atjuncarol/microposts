@@ -13,10 +13,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # This is a sensible default for uploaders that are meant to be mounted:
 
   def store_dir
-    # デフォルト値
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
-    # public/ 配下にファイルが配置される
-    # "uploads"
+      "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
 
@@ -29,7 +26,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # end
 
   # Process files as they are uploaded:
-  process :scale => [200, 300]
+  # process :resize_to_fit
   #
   # def scale(width, height)
   #   # do something
@@ -37,7 +34,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
-     process :resize_to_fit => [50, 50]
+     process :resize_to_fit => [30, 30]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.

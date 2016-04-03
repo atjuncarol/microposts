@@ -6,7 +6,8 @@
     
 　  <div class="image-post">
     <%= f.label :image %>
-    <input type="file" id = "image">
+    
+    <%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png'  %>
      </div>
 　　
     <%= f.submit "Post", class: "btn btn-primary" %>
