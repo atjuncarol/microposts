@@ -58,3 +58,5 @@ gem 'faker',                '1.4.2'
 gem 'mini_magick'
 
 gem 'carrierwave'
+
+gem 'cloudinary'
