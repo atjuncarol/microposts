@@ -4,7 +4,10 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'sqlite3', group: :development
+# 本番ではpostgressを使用する
+gem 'pg', group: :production
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -47,3 +50,15 @@ group :development do
   gem 'spring'
 end
 
+gem 'will_paginate',           '3.0.7'
+
+gem 'bootstrap-will_paginate', '0.0.10'
+
+gem 'faker',                '1.4.2'
+
+# Image Uploader
+gem 'mini_magick'
+
+gem 'carrierwave'
+
+gem 'cloudinary'
